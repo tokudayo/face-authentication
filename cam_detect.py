@@ -91,7 +91,7 @@ while(True):
         face = mtcnn(img)
     except:
         cv2.putText(frame, "No faces found", (10, 40),
-                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1)
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2)
     else:
         # Move face rep. to GPU
         face = face.to(device)
@@ -100,7 +100,7 @@ while(True):
         # Compare captured face to existing data to identify the person
         info = identity(embedding, data)
         cv2.putText(frame, info, (10, 40),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1)
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2)
         '''
         Convert face tensor to BGR (preferred cv2 color mode) and display
         Minor impact on runtime resources
